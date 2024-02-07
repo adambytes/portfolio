@@ -1,23 +1,23 @@
 "use client";
-import AWS from "./AWS.svg";
-import Azure from "./Azure.svg";
-import Docker from "./Docker.svg";
-import GCP from "./Google Cloud.svg";
-import Django from "./Django.svg";
-import GitHubActions from "./GitHub Actions.svg";
-import Java from "./Java.svg";
-import JavaScript from "./JavaScript.svg";
-import Kubernetes from "./Kubernetes.svg";
-import NodeJs from "./NodeJs.svg";
-import Python from "./Python.svg";
-import React from "./React.svg";
-import TypeScript from "./TypeScript.svg";
-import Webpack from "./Webpack.svg";
-import NextJS from "./NextJs.svg";
+import AWS from "@/public/images/AWS.svg";
+import Azure from "@/public/images/Azure.svg";
+import Docker from "@/public/images/Docker.svg";
+import GCP from "@/public/images/Google Cloud.svg";
+import Django from "@/public/images/Django.svg";
+import GitHubActions from "@/public/images/GitHub Actions.svg";
+import Java from "@/public/images/Java.svg";
+import JavaScript from "@/public/images/JavaScript.svg";
+import Kubernetes from "@/public/images/Kubernetes.svg";
+import NodeJs from "@/public/images/NodeJs.svg";
+import Python from "@/public/images/Python.svg";
+import React from "@/public/images/React.svg";
+import TypeScript from "@/public/images/TypeScript.svg";
+import Webpack from "@/public/images/Webpack.svg";
+import NextJS from "@/public/images/NextJs.svg";
 import Image from "next/image";
 import cn from "@/utils/cn";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { SVGProps, useMemo } from "react";
 
 const styles = {
   icon: "w-8 h-8",
@@ -25,23 +25,26 @@ const styles = {
 };
 
 export default function TechList() {
-  const [svgList, setSvgList] = useState<any[]>([
-    AWS,
-    Azure,
-    Docker,
-    GCP,
-    Django,
-    GitHubActions,
-    Java,
-    JavaScript,
-    Kubernetes,
-    NodeJs,
-    Python,
-    React,
-    TypeScript,
-    Webpack,
-    NextJS,
-  ]);
+  const svgList = useMemo(
+    () => [
+      AWS,
+      Azure,
+      Docker,
+      GCP,
+      Django,
+      GitHubActions,
+      Java,
+      JavaScript,
+      Kubernetes,
+      NodeJs,
+      Python,
+      React,
+      TypeScript,
+      Webpack,
+      NextJS,
+    ],
+    []
+  );
 
   return (
     <motion.div
@@ -54,20 +57,23 @@ export default function TechList() {
       initial="hidden"
       animate="show"
     >
-      {svgList.map((icon: any, i: number) => {
+      {svgList.map((Icon: any, i: number) => {
         return (
           <motion.div
-            key={i}
+            key={"icon" + i}
             className={cn(styles.iconContainer, "shadow-lg shadow-slate-800")}
-            onClick={() =>
-              setSvgList((prev) => prev.filter((_, index) => index !== i))
-            }
             variants={{
               hidden: { opacity: 0 },
               show: { opacity: 1 },
             }}
           >
-            <Image {...icon} alt={icon.name} className={styles.icon} />
+            <Image
+              src={Icon}
+              alt="icon"
+              className={styles.icon}
+              width={32}
+              height={32}
+            />
           </motion.div>
         );
       })}

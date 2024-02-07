@@ -1,8 +1,12 @@
-import Socials from "@/components/Socials";
-import TechList from "@/components/TechList";
+import Loading from "@/components/Loading";
 import cn from "@/utils/cn";
 import { Montserrat, Space_Mono } from "next/font/google";
 import { twMerge } from "tailwind-merge";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+import Socials from "@/components/Socials";
+
+const TechList = dynamic(() => import("@/components/TechList"));
 
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700"],
@@ -44,11 +48,13 @@ export default function Page() {
       <div>
         <p className={cn(styles.p)}>
           Hi, I&apos;m Adam. I&apos;m a fullstack software engineer based in New
-          York City. I&apos;m passionate about Open Source, AI, and I love
-          building tools.
+          York City. I&apos;m passionate about Open Source, AI, and accessible
+          education.
         </p>
       </div>
-      <TechList />
+      <Suspense fallback={<Loading />}>
+        <TechList />
+      </Suspense>
     </div>
   );
 }

@@ -1,10 +1,12 @@
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import Switch from "@/components/Switch";
-import cn from "@/utils/cn";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import Loading from "@/components/Loading";
+
+const Switch = dynamic(() => import("@/components/Switch"));
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body data-theme="dark">
         <div className="flex flex-col h-screen">
-          <Switch className="mt-8 self-center" />
+          <Suspense fallback={<Loading />}>
+            <Switch className="mt-8 self-center" />
+          </Suspense>
           {children}
           <Footer />
         </div>

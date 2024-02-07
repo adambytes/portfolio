@@ -1,7 +1,4 @@
-"use client";
-
-import React, { useState, useEffect, useRef } from "react";
-import p5 from "p5";
+import { useEffect, useRef } from "react";
 import portrait from "./portrait.png";
 
 type PortraitProps = {

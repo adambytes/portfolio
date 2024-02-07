@@ -1,3 +1,4 @@
+"use client";
 import {
   Linkedin,
   Twitter,
@@ -7,13 +8,15 @@ import {
 } from "iconoir-react";
 import cn from "@/utils/cn";
 import Link from "next/link";
+import Image from "next/image";
+import { ExoticComponent, ReactElement, ReactPropTypes } from "react";
 
 const style = {
   color: "--foreground",
 };
 
 type SocialIconProps = {
-  Icon: any;
+  Icon: typeof Facebook;
   href: string;
 };
 
@@ -28,7 +31,6 @@ export function SocialIcon({ Icon, href }: SocialIconProps) {
 }
 
 export default function Socials() {
-  const size = 30;
   return (
     <div className="flex flex-row gap-6">
       <SocialIcon Icon={Linkedin} href="https://www.linkedin.com" />

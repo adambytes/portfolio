@@ -48,8 +48,10 @@ export default function Page() {
       <div>
         <p className={cn(styles.p)}>
           Hi, I&apos;m Adam. I&apos;m a fullstack software engineer based in New
-          York City. I&apos;m passionate about Open Source, AI, and accessible
-          education.
+          York City.
+        </p>
+        <p className={cn(styles.p)}>
+          I specialize in building web applications and cloud infrastructure.
         </p>
       </div>
       <Suspense fallback={<Loading />}>

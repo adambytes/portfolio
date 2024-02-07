@@ -42,8 +42,8 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
           type="checkbox"
           role="switch"
           aria-checked={checked}
-          checked={checked}
-          onClick={handleClick}
+          defaultChecked={checked}
+          onChange={() => handleClick()}
         />
         <label htmlFor="toggle-box" className="cursor-pointer" />
       </div>

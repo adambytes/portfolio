@@ -13,7 +13,7 @@ import Python from "./Python.svg";
 import React from "./React.svg";
 import TypeScript from "./TypeScript.svg";
 import Webpack from "./Webpack.svg";
-import NextJS from "./NextJS.svg";
+import NextJS from "./NextJs.svg";
 import Image from "next/image";
 import cn from "@/utils/cn";
 import { motion } from "framer-motion";

@@ -22,6 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "69d202cc789d4b8cae5130755bb7c5e3"}'
+        ></script>
+      </head>
       <body data-theme="dark">
         <div className="flex flex-col h-screen">
           <Suspense fallback={<Loading />}>

@@ -3,10 +3,14 @@ import cn from '@/utils/cn'
 import { Montserrat, Space_Mono } from 'next/font/google'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
+import Socials from '@/components/Socials'
 
-const TechList = dynamic(() => import('@/components/TechList'))
-const Socials = dynamic(() => import('@/components/Socials'))
-const Description = dynamic(() => import('@/components/Description'))
+const TechList = dynamic(() => import('@/components/TechList'), {
+  loading: () => <Loading />,
+})
+const Description = dynamic(() => import('@/components/Description'), {
+  loading: () => <Loading />,
+})
 
 const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],

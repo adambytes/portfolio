@@ -7,11 +7,8 @@ const withBundleAnalyzer = pkg({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  reactProductionProfiling: true,
   experimental: {
     optimizeCss: true,
-    swcMinify: true,
-    serverSourceMaps: true,
   },
 }
 

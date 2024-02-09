@@ -6,10 +6,6 @@ import Github from '@/public/images/Github.svg'
 import Facebook from '@/public/images/Facebook.svg'
 import Email from '@/public/images/Email.svg'
 
-const style = {
-  color: '--foreground',
-}
-
 type SocialIconProps = {
   svg: any
   href: string
@@ -21,7 +17,6 @@ export function SocialIcon({ svg, href }: SocialIconProps) {
   return (
     <Link href={href} className="social">
       <Image src={svg} alt="icon" width={SIZE} height={SIZE} />
-      {/* <Icon color={style.color} height={SIZE} width={SIZE} /> */}
     </Link>
   )
 }

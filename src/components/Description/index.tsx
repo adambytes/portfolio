@@ -8,7 +8,7 @@ export default function Description() {
   const descriptions = [
     "Hi, I'm Adam. I'm a fullstack software engineer based in New York City. My expertise is in building scalable and maintainable web applications using React and NextJs.",
     "I'm passionate about building products that are user-friendly and accessible. I'm always looking for new opportunities to learn and grow as a developer.",
-    "I hand crafted this website using NextJs, TailwindCSS, and Framer Motion. I'll be using this space to test out new technologies and showcase my work. Feel free to reach out to me on LinkedIn or Twitter. I'm always open to new opportunities and collaborations.",
+    "I hand crafted this website using NextJs, TailwindCSS, and Framer Motion. I'll be using this space to test out new technologies and showcase my work. Feel free to reach out to me on LinkedIn or Twitter.",
   ]
 
   const styles = {

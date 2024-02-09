@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/Footer'
 import Loading from '@/components/Loading'
-import Cursor from '@/components/Cursor'
 
 const Switch = dynamic(() => import('@/components/Switch'))
 
@@ -24,7 +23,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body data-theme="dark">
-        <Cursor />
         <div className="flex flex-col h-screen">
           <Suspense fallback={<Loading />}>
             <Switch className="mt-8 self-center" />

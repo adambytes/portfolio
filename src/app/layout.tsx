@@ -5,6 +5,7 @@ import './globals.css'
 import Footer from '@/components/Footer'
 import Loading from '@/components/Loading'
 import Script from 'next/script'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const Switch = dynamic(() => import('@/components/Switch'))
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           </Suspense>
           {children}
           <Footer />
+          <SpeedInsights />
           <Script
             defer
             src="https://static.cloudflareinsights.com/beacon.min.js"

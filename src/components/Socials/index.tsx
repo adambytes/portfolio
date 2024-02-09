@@ -1,11 +1,4 @@
-'use client'
-import {
-  Linkedin,
-  Twitter,
-  Github,
-  Facebook,
-  ReplyToMessage,
-} from 'iconoir-react'
+import { Linkedin, Github, Facebook, ReplyToMessage } from 'iconoir-react'
 import cn from '@/utils/cn'
 import Link from 'next/link'
 
@@ -23,7 +16,7 @@ export function SocialIcon({ Icon, href }: SocialIconProps) {
 
   return (
     <Link href={href} className="social">
-      <Icon color={cn(style.color)} height={SIZE} width={SIZE} />
+      <Icon color={style.color} height={SIZE} width={SIZE} />
     </Link>
   )
 }

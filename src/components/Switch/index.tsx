@@ -2,7 +2,7 @@
 
 import { forwardRef, useEffect, useState } from 'react'
 import './styles.scss'
-import { twMerge } from 'tailwind-merge'
+import cn from '@/utils/cn'
 
 interface SwitchProps {
   className?: string
@@ -35,7 +35,7 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
     }, [])
 
     return (
-      <div className={twMerge(className)} {...props} ref={ref}>
+      <div className={cn(className)} {...props} ref={ref}>
         <input
           id="toggle-box"
           className="light-dark cursor-pointer"

@@ -1,13 +1,12 @@
 import Loading from '@/components/Loading'
 import cn from '@/utils/cn'
 import { Montserrat, Space_Mono } from 'next/font/google'
-import { twMerge } from 'tailwind-merge'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
-import Socials from '@/components/Socials'
-import Description from '@/components/Description'
 
 const TechList = dynamic(() => import('@/components/TechList'))
+const Socials = dynamic(() => import('@/components/Socials'))
+const Description = dynamic(() => import('@/components/Description'))
 
 const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],
@@ -33,7 +32,7 @@ const styles = {
 export default function Page() {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'flex flex-col items-center justify-center grow',
         styles.sm,
         styles.md,

@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
-import { Suspense, useEffect } from 'react'
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/Footer'
 import Loading from '@/components/Loading'
@@ -9,11 +8,9 @@ import Script from 'next/script'
 
 const Switch = dynamic(() => import('@/components/Switch'))
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
   title: 'Adam Liang',
-  description: "Adam Liang's personal website",
+  description: 'Everyones favorite software engineer',
 }
 
 export default function RootLayout({
@@ -23,13 +20,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <Script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "69d202cc789d4b8cae5130755bb7c5e3"}'
-        ></Script>
-      </head>
       <body data-theme="dark">
         <div className="flex flex-col h-screen">
           <Suspense fallback={<Loading />}>
@@ -37,6 +27,11 @@ export default function RootLayout({
           </Suspense>
           {children}
           <Footer />
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "69d202cc789d4b8cae5130755bb7c5e3"}'
+          />
         </div>
       </body>
     </html>

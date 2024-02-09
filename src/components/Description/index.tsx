@@ -1,7 +1,7 @@
 'use client'
 import cn from '@/utils/cn'
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion'
 export default function Description() {
   const [index, setIndex] = useState(0)
 
@@ -25,9 +25,11 @@ export default function Description() {
       <span className={styles.arrow} onClick={() => handleIndexChange(-1)}>
         &lt;
       </span>
-      <AnimatePresence>
-        <motion.p className={cn(styles.p)}>{descriptions[index]}</motion.p>
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence>
+          <m.p className={cn(styles.p)}>{descriptions[index]}</m.p>
+        </AnimatePresence>
+      </LazyMotion>
       <span className={styles.arrow} onClick={() => handleIndexChange(1)}>
         &gt;
       </span>

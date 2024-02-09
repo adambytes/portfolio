@@ -1,10 +1,11 @@
 import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Footer from '@/components/Footer'
 import Loading from '@/components/Loading'
+import Script from 'next/script'
 
 const Switch = dynamic(() => import('@/components/Switch'))
 
@@ -23,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        <Script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "69d202cc789d4b8cae5130755bb7c5e3"}'
-        ></script>
+        ></Script>
       </head>
       <body data-theme="dark">
         <div className="flex flex-col h-screen">

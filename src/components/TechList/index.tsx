@@ -16,8 +16,8 @@ import Webpack from '@/public/images/Webpack.svg'
 import NextJS from '@/public/images/NextJs.svg'
 import Image from 'next/image'
 import cn from '@/utils/cn'
-import { motion } from 'framer-motion'
-import { SVGProps, useMemo } from 'react'
+import { m, LazyMotion, domAnimation } from 'framer-motion'
+import { useMemo } from 'react'
 
 const styles = {
   icon: 'w-8 h-8',
@@ -47,39 +47,41 @@ export default function TechList() {
   )
 
   return (
-    <motion.div
-      className="grid grid-cols-5 gap-8 py-4"
-      variants={{
-        hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { staggerChildren: 0.2 } },
-        exit: { opacity: 0 },
-      }}
-      initial="hidden"
-      animate="show"
-    >
-      {svgList.map((Icon: any, i: number) => {
-        return (
-          <motion.div
-            key={'icon' + i}
-            className={cn(
-              styles.iconContainer,
-              'shadow-lg shadow-slate-800 hover:scale-110 transition-transform duration-200 ease-in-out'
-            )}
-            variants={{
-              hidden: { opacity: 0 },
-              show: { opacity: 1 },
-            }}
-          >
-            <Image
-              src={Icon}
-              alt="icon"
-              className={styles.icon}
-              width={32}
-              height={32}
-            />
-          </motion.div>
-        )
-      })}
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        className="grid grid-cols-5 gap-8 py-4"
+        variants={{
+          hidden: { opacity: 0 },
+          show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          exit: { opacity: 0 },
+        }}
+        initial="hidden"
+        animate="show"
+      >
+        {svgList.map((Icon: any, i: number) => {
+          return (
+            <m.div
+              key={'icon' + i}
+              className={cn(
+                styles.iconContainer,
+                'shadow-lg shadow-slate-800 hover:scale-110 transition-transform duration-200 ease-in-out'
+              )}
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1 },
+              }}
+            >
+              <Image
+                src={Icon}
+                alt="icon"
+                className={styles.icon}
+                width={32}
+                height={32}
+              />
+            </m.div>
+          )
+        })}
+      </m.div>
+    </LazyMotion>
   )
 }

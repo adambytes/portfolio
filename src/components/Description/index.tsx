@@ -17,7 +17,7 @@ export default function Description() {
   }
 
   const handleIndexChange = (delta: number) => {
-    setIndex((prev) => (prev + delta) % descriptions.length)
+    setIndex((prev) => Math.abs((prev + delta) % descriptions.length))
   }
 
   return (

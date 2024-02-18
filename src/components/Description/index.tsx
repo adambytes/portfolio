@@ -25,8 +25,9 @@ function Message({
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
+        transition: { duration: 0.5, ease: 'easeInOut' },
       }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, transition: { duration: 0.5, ease: 'easeInOut' } }}
     >
       {message}
     </m.p>
@@ -42,7 +43,7 @@ export default function Description() {
   ]
 
   const styles = {
-    p: 'text-xs sm:text-base md:text-base py-6 text-center',
+    p: 'text-xs sm:text-base md:text-base py-6 text-center leading-snug',
     arrow: 'cursor-pointer text-4xl sm:text-xl md:text-3xl',
   }
 
@@ -53,7 +54,7 @@ export default function Description() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleIndexChange(1)
-    }, 3000)
+    }, 5000)
     return () => clearInterval(interval)
   }, [index])
 

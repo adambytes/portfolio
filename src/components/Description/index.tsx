@@ -1,7 +1,37 @@
 'use client'
 import cn from '@/utils/cn'
-import { useState } from 'react'
-import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion'
+import { useEffect, useState, useRef } from 'react'
+import {
+  m,
+  LazyMotion,
+  domAnimation,
+  AnimatePresence,
+  motion,
+} from 'framer-motion'
+
+function Message({
+  key,
+  message,
+  className,
+}: {
+  key: string
+  message: string
+  className: string
+}) {
+  return (
+    <m.p
+      className={className}
+      key={key}
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+      }}
+      exit={{ opacity: 0 }}
+    >
+      {message}
+    </m.p>
+  )
+}
 export default function Description() {
   const [index, setIndex] = useState(0)
 
@@ -17,8 +47,15 @@ export default function Description() {
   }
 
   const handleIndexChange = (delta: number) => {
-    setIndex((prev) => Math.abs((prev + delta) % descriptions.length))
+    setIndex((prev) => prev + delta)
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleIndexChange(1)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [index])
 
   return (
     <div className="flex flex-row items-center justify-center gap-4 w-[60vw] md:min-w-[60vw] sm:min-w-[80vw]">
@@ -26,8 +63,14 @@ export default function Description() {
         &lt;
       </span>
       <LazyMotion features={domAnimation}>
-        <AnimatePresence>
-          <m.p className={cn(styles.p)}>{descriptions[index]}</m.p>
+        <AnimatePresence initial={false} mode="wait">
+          <Message
+            key={`${index}-${
+              descriptions[Math.abs(index) % descriptions.length]
+            }`}
+            className={cn(styles.p)}
+            message={descriptions[Math.abs(index) % descriptions.length]}
+          />
         </AnimatePresence>
       </LazyMotion>
       <span className={styles.arrow} onClick={() => handleIndexChange(1)}>

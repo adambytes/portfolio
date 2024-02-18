@@ -71,13 +71,7 @@ export default function TechList() {
                 show: { opacity: 1 },
               }}
             >
-              <Image
-                src={Icon}
-                alt="icon"
-                className={styles.icon}
-                width={32}
-                height={32}
-              />
+              <Icon alt="icon" className={styles.icon} width={32} height={32} />
             </m.div>
           )
         })}

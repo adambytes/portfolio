@@ -37,7 +37,7 @@ export default function Page() {
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center grow',
+        'flex flex-col items-center justify-center align-middle grow',
         styles.sm,
         styles.md,
         styles.lg

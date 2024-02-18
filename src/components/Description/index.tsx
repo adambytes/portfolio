@@ -21,7 +21,7 @@ export default function Description() {
   }
 
   return (
-    <div className="flex flex-row items-center gap-4 w-[60vw] md:min-w-[60vw] sm:min-w-[80vw]'">
+    <div className="flex flex-row items-center justify-center gap-4 w-[60vw] md:min-w-[60vw] sm:min-w-[80vw] outline">
       <span className={styles.arrow} onClick={() => handleIndexChange(-1)}>
         &lt;
       </span>

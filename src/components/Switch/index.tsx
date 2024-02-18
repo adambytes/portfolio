@@ -14,6 +14,13 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
 
     const handleClick = () => {
       const theme = localStorage.getItem('theme')
+      // check if localstorage is set
+
+      if (theme === null) {
+        localStorage.setItem('theme', 'dark')
+        return
+      }
+
       document.body.setAttribute(
         'data-theme',
         theme === 'dark' ? 'light' : 'dark'

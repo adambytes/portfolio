@@ -1,7 +1,7 @@
 import Loading from '@/components/Loading'
 import cn from '@/utils/cn'
 import { Montserrat, Space_Mono } from 'next/font/google'
-import { Suspense } from 'react'
+import { HTMLAttributes, Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import Socials from '@/components/Socials'
 
@@ -24,12 +24,12 @@ const spaceMono = Space_Mono({
   subsets: ['latin'],
 })
 
-const styles = {
+const styles: Record<string, HTMLAttributes<HTMLDivElement>['className']> = {
   sm: 'sm:mb-0',
   md: 'md:mb-[8em]',
   lg: 'lg:mb-[8em]',
   title:
-    'sm:text-5xl lg:text-7xl font-semibold lg:font-bold md:font-bold md:text-6xl text-5xl',
+    'sm:text-5xl lg:text-7xl font-semibold lg:font-bold md:font-bold md:text-6xl text-5xl tracking-tighter',
   subtitle: 'pb-6',
 }
 

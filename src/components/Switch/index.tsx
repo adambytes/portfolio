@@ -1,8 +1,8 @@
 'use client'
 
 import { forwardRef, useEffect, useState } from 'react'
-import './styles.scss'
 import cn from '@/utils/cn'
+import './styles.scss'
 
 interface SwitchProps {
   className?: string

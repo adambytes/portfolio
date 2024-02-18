@@ -7,9 +7,6 @@ const withBundleAnalyzer = pkg({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    optimizeCss: true,
-  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

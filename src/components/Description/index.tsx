@@ -10,18 +10,18 @@ import {
 } from 'framer-motion'
 
 function Message({
-  key,
+  id,
   message,
   className,
 }: {
-  key: string
+  id: string
   message: string
   className: string
 }) {
   return (
     <m.p
       className={className}
-      key={key}
+      key={id}
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
@@ -65,9 +65,7 @@ export default function Description() {
       <LazyMotion features={domAnimation}>
         <AnimatePresence initial={false} mode="wait">
           <Message
-            key={`${index}-${
-              descriptions[Math.abs(index) % descriptions.length]
-            }`}
+            id={`description${index}`}
             className={cn(styles.p)}
             message={descriptions[Math.abs(index) % descriptions.length]}
           />

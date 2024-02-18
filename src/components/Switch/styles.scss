@@ -14,7 +14,7 @@ label {
 /**/
 
 @property --light-dark-toggle-x {
-  syntax: "<percentage>";
+  syntax: '<percentage>';
   initial-value: 0%;
   inherits: false;
 }
@@ -32,7 +32,7 @@ label {
 
   &::before {
     --light-dark-toggle-x: 0;
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 25%;
@@ -50,7 +50,7 @@ label {
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 1em;
     aspect-ratio: 1;

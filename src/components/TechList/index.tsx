@@ -56,14 +56,8 @@ export default function TechList() {
   const handleIconClick: MouseEventHandler = (e) => {
     console.log('clicked', e.currentTarget.id)
     const name = e.currentTarget.id
-    // setDeleted((prev) => [...prev, name])
     setShow((prev) => prev.filter((item) => item !== name))
-
-    Promise.resolve(
-      setTimeout(() => {
-        setShow((prev) => [...prev, name])
-      }, 2000)
-    )
+    setTimeout(() => setShow((prev) => [...prev, name]), 2500)
   }
 
   return (
